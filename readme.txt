@@ -1,5 +1,5 @@
 === All-in-One WP Migration Unlimited Extension ===
-Contributors: yourusername
+Contributors: tanjilahmed7
 Tags: migration, backup, import, unlimited, file-size
 Requires at least: 5.0
 Tested up to: 6.5
@@ -32,14 +32,20 @@ This extension removes the JavaScript-based file size restriction and implements
 * All-in-One WP Migration (free version) - must be installed and activated
 
 **Server Requirements:**
-For optimal performance with very large files (> 300MB), you may need to adjust your PHP settings:
+For optimal performance with very large files (> 300MB), you may need to adjust your PHP and web server settings:
 
-* `upload_max_filesize` - Recommended: 512M or higher
-* `post_max_size` - Recommended: 512M or higher  
-* `memory_limit` - Recommended: 512M or higher
-* `max_execution_time` - Recommended: 300 seconds
+* PHP `upload_max_filesize` - Recommended: 512M or higher
+* PHP `post_max_size` - Recommended: 512M or higher  
+* PHP `memory_limit` - Recommended: 512M or higher
+* PHP `max_execution_time` - Recommended: 300 seconds
+* nginx `client_max_body_size` - Recommended: 512M or higher (if using nginx)
+* Apache `LimitRequestBody` - Recommended: 512M or higher (if using Apache)
 
-For Local by Flywheel users, these settings can be adjusted in `conf/php/php.ini.hbs`. For other hosting environments, consult your hosting provider or modify your `php.ini` file.
+**Configuration:**
+* **nginx servers:** Edit `/etc/nginx/nginx.conf` and add `client_max_body_size 512M;` in the `http` or `server` block, then edit PHP-FPM php.ini and restart both services.
+* **Apache servers:** Edit php.ini and Apache config (or use `.htaccess` if allowed), then restart Apache.
+* **cPanel/Shared hosting:** Use cPanel's MultiPHP INI Editor or create a `.user.ini` file in your WordPress root directory.
+* For detailed instructions, see the INSTALLATION.md file included with this plugin.
 
 = Privacy Policy =
 
@@ -63,7 +69,9 @@ This plugin does not collect, store, or transmit any user data. All backup file 
 
 = Configuration =
 
-No configuration needed! Once activated, the extension automatically removes the file size restrictions.
+No configuration needed for files under 300MB! Once activated, the extension automatically removes the file size restrictions.
+
+For files larger than 300MB, you may need to configure your PHP and web server settings (nginx or Apache2). See the Requirements section above and the INSTALLATION.md file for detailed instructions.
 
 == Frequently Asked Questions ==
 
@@ -85,7 +93,13 @@ After activation, go to All-in-One WP Migration → Import. You should see "Maxi
 
 = What if my import fails with a 400 or 415 error? =
 
-This usually means your server's PHP upload limits are lower than your backup file size. Increase the PHP settings mentioned in the Requirements section and restart your web server.
+This usually means your server's PHP upload limits or web server limits are lower than your backup file size. 
+
+* **For nginx:** Increase PHP limits in php.ini AND add `client_max_body_size 512M;` to your nginx config, then restart PHP-FPM and nginx.
+* **For Apache:** Increase PHP limits in php.ini AND configure `LimitRequestBody` in Apache config (or use `.htaccess`), then restart Apache.
+* **For cPanel:** Use the MultiPHP INI Editor to increase PHP limits.
+
+See the Requirements section for specific values and the INSTALLATION.md file for detailed step-by-step instructions.
 
 = Can I use this on multisite? =
 
@@ -115,7 +129,7 @@ Initial release of the Unlimited Extension. Remove the 300 MB file size limit an
 == Support ==
 
 For support, feature requests, or bug reports, please visit:
-https://github.com/yourusername/ai1wm-unlimited-extension/issues
+https://github.com/tanjilahmed7/ai1wm-unlimited-extension/issues
 
 == Credits ==
 
