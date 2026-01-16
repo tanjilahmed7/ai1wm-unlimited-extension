@@ -352,7 +352,7 @@ If you encounter issues:
    - Review PHP error logs
 
 3. **Ask for Support:**
-   - GitHub Issues: Report bugs and feature requests
+   - GitHub Issues: [Report bugs and feature requests](https://github.com/tanjilahmed7/ai1wm-unlimited-extension/issues)
    - Include: WordPress version, PHP version, error messages
    - Provide: Browser console errors if applicable
 

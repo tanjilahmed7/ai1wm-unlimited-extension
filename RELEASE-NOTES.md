@@ -118,7 +118,7 @@ max_execution_time = 300
 ## Support and Updates
 
 ### Get Support
-- GitHub Issues for bugs/features
+- [GitHub Issues](https://github.com/tanjilahmed7/ai1wm-unlimited-extension/issues) for bugs/features
 - Complete documentation in INSTALLATION.md
 - Troubleshooting guide in README.md
 

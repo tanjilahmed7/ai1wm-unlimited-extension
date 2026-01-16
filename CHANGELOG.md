@@ -74,4 +74,4 @@ These versions were part of development and testing:
 
 ---
 
-[1.0.0]: https://github.com/yourusername/ai1wm-unlimited-extension/releases/tag/v1.0.0
+[1.0.0]: https://github.com/tanjilahmed7/ai1wm-unlimited-extension/releases/tag/v1.0.0

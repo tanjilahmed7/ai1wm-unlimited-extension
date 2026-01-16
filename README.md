@@ -146,7 +146,7 @@ This plugin is licensed under the GNU General Public License v3.0 or later.
 
 For issues, feature requests, or questions:
 
-- **GitHub Issues:** [Report a bug](https://github.com/yourusername/ai1wm-unlimited-extension/issues)
+- **GitHub Issues:** [Report a bug](https://github.com/tanjilahmed7/ai1wm-unlimited-extension/issues)
 - **Documentation:** See readme.txt for detailed FAQ
 
 ## Changelog
